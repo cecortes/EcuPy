@@ -10,6 +10,7 @@ BAUDRATE = 9600
 TIMEOUT = 1
 usbCom = 0
 datoLog = ""
+noValidData = True
 
 ########### Funciones #############################
 #Se encarga de inciar y configurar el UART
@@ -56,10 +57,18 @@ def GpsGetData(newLine):
                 fechaHoraLocal = fechaHora.to('America/Mexico_City').format('DD-MM-YYYY,HH:mm:ss')
 
             except arrow.parser.ParserMatchError as e:
+                #Cambio de estado de la bandera
+                noValidData = True
+                #Salida de la función
                 return
 
-            #CSV
+            #Línea válida para el CSV
             datoLog = fechaHoraLocal + "," + lat + "," + lon
+
+            #Cambio de estado de la bandera
+            noValidData = False
+
+            #Usr DEBUG
             print(datoLog)
 
     except pynmea2.ParseError as e:
