@@ -3,6 +3,7 @@ import serial
 import pynmea2      #Se encarga de los mensajes NMEA
 import string
 import io
+import time
 import arrow        #Se encarga de manejar el datetimestamp
 
 #Globales
@@ -41,13 +42,13 @@ def GpsGetData(newLine):
         if (gpsNewMsg[0:6] == "$GPRMC"):
             #Proccess msg
             gpsDat = pynmea2.parse(gpsNewMsg)
-            print(gpsDat)
 
             #Decode data and convert float to string only 6 decimals
             fecha = str(gpsDat.datestamp)
             hora = str(gpsDat.timestamp)
             lat = str('%.8f' % gpsDat.latitude)
             lon = str('%.8f' % gpsDat.longitude)
+            velRaw = str('%.2f' % gpsDat.spd_over_grnd)
 
             #Control de errores, salida en caso de haber dato nulo en la fecha/hora
             try:
@@ -63,7 +64,7 @@ def GpsGetData(newLine):
                 return
 
             #Línea válida para el CSV
-            datoLog = fechaHoraLocal + "," + lat + "," + lon
+            datoLog = fechaHoraLocal + "," + lat + "," + lon + "," + velRaw
 
             #Cambio de estado de la bandera
             noValidData = False
@@ -72,6 +73,38 @@ def GpsGetData(newLine):
             print(datoLog)
 
     except pynmea2.ParseError as e:
+        return
+
+'''
+Crea un archivo csv en modo escritura append
+Escibe una nueva línea con el datoLog
+Cierra el archivo para la siguiente ejecución
+Realiza una pausa de ejecución de x tiempo
+'''
+def CsvWriteData():
+    #Init global var
+    global datoLog
+
+    #Elimina los saltos de línea
+    s = datoLog.rstrip("\n")
+    #print(s)
+    return
+    #Control de errores
+    try:
+        #Objeto para el archivo
+        csvFile = open("datos.csv", "a")
+
+        #Escritura de datos
+        csvFile.write(dataLog)
+        csvFile.write("\n")
+
+        #Close File
+        csvFile.close()
+
+        #System 5 sec Pause 
+        time.sleep(5)
+    
+    except (OSError, IOError) as e:
         return
 
 ######### MAIN ###################################
@@ -90,6 +123,9 @@ while True:
 
         #Get gps data
         GpsGetData(gpsNewMsg)
+
+        #Write CSV data
+        CsvWriteData()
 
     except(KeyboardInterrupt):
         print(">> Interrupción del teclado...")
