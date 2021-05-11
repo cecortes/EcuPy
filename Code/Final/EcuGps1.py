@@ -9,6 +9,7 @@ import arrow        #Se encarga de manejar el datetimestamp
 BAUDRATE = 9600
 TIMEOUT = 1
 usbCom = 0
+datoLog = ""
 
 ########### Funciones #############################
 #Se encarga de inciar y configurar el UART
@@ -24,9 +25,43 @@ def InitUart():
     #Flush
     usbCom.flushInput()
 
+'''
+Se encarga de recibir el dato NMEA para ser procesado
+Obtiene los valores necesarios y los convierte a Strings
+Construye un objeto del tipo arrow para cambiar el UTC a -6 GMT
+Convierte el timestamp
+Le da el formato necesario al timestamp
+Construye el mensaje CSV y lo almacena en la variable global
+'''
+def GpsGetData(newLine):
+    #Control de errores
+    try:
+        #Validación del mensaje
+        if (gpsNewMsg[0:6] == "$GPRMC"):
+            #Proccess msg
+            gpsDat = pynmea2.parse(gpsNewMsg)
+
+            #Decode data and convert float to string only 6 decimals
+            fecha = str(gpsDat.datestamp)
+            hora = str(gpsDat.timestamp)
+            lat = str('%.8f' % gpsDat.latitude)
+            lon = str('%.8f' % gpsDat.longitude)
+
+            #Construction arrow object to handle timestamp
+            fechaHora = arrow.get(fecha + " " + hora, 'YYYY-MM-DD HH:mm:ss')
+            #Convert to local GMT and formatting
+            fechaHoraLocal = fechaHora.to('America/Mexico_City').format('DD-MM-YYYY,HH:mm:ss')
+
+            #CSV
+            datoLog = fechaHoraLocal + "," + lat + "," + lon
+            print(datoLog)
+
+    except pynmea2.ParseError as e:
+        return
+
 ######### MAIN ###################################
 
-#Iniciamos la comUART
+#Iniciamos la UART
 InitUart()
 
 #Wrapper para el buffer a texto
@@ -38,25 +73,8 @@ while True:
         #Feed hungry mounster
         gpsNewMsg = usbWrp.readline()
 
-        #Validación del mensaje
-        if (gpsNewMsg[0:6] == "$GPRMC"):
-            #Proccess msg
-            gpsDat = pynmea2.parse(gpsNewMsg)
-            #Decode data and convert float to string only 6 decimals
-            fecha = str(gpsDat.datestamp)
-            hora = str(gpsDat.timestamp)
-            lat = str('%.8f' % gpsDat.latitude)
-            lon = str('%.8f' % gpsDat.longitude)
-            #Construction Arrow datetime stamp
-            fechaHora = arrow.get(fecha + " " + hora, 'YYYY-MM-DD HH:mm:ss')
-            #Convert to local time and format datetime stamp
-            fechaHoraLocal = fechaHora.to('America/Mexico_City')
-            fechaHoraLocal = fechaHoraLocal.format('DD-MM-YYYY,HH:mm:ss')          
-            #CVS
-            print(fechaHoraLocal + "," + lat + "," + lon)
-
-    except pynmea2.ParseError as e:
-        continue
+        #Get gps data
+        GpsGetData(gpsNewMsg)
 
     except(KeyboardInterrupt):
         print(">> Interrupción del teclado...")
