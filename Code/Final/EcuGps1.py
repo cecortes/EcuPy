@@ -34,12 +34,13 @@ Le da el formato necesario al timestamp
 Construye el mensaje CSV y lo almacena en la variable global
 '''
 def GpsGetData(newLine):
-    #Control de errores
+    #Control de errores, salida en caso de haber error en el mensaje pynmea2
     try:
         #Validación del mensaje
         if (gpsNewMsg[0:6] == "$GPRMC"):
             #Proccess msg
             gpsDat = pynmea2.parse(gpsNewMsg)
+            print(gpsDat)
 
             #Decode data and convert float to string only 6 decimals
             fecha = str(gpsDat.datestamp)
@@ -47,10 +48,15 @@ def GpsGetData(newLine):
             lat = str('%.8f' % gpsDat.latitude)
             lon = str('%.8f' % gpsDat.longitude)
 
-            #Construction arrow object to handle timestamp
-            fechaHora = arrow.get(fecha + " " + hora, 'YYYY-MM-DD HH:mm:ss')
-            #Convert to local GMT and formatting
-            fechaHoraLocal = fechaHora.to('America/Mexico_City').format('DD-MM-YYYY,HH:mm:ss')
+            #Control de errores, salida en caso de haber dato nulo en la fecha/hora
+            try:
+                #Construction arrow object to handle timestamp
+                fechaHora = arrow.get(fecha + " " + hora, 'YYYY-MM-DD HH:mm:ss')
+                #Convert to local GMT and formatting
+                fechaHoraLocal = fechaHora.to('America/Mexico_City').format('DD-MM-YYYY,HH:mm:ss')
+
+            except arrow.parser.ParserMatchError as e:
+                return
 
             #CSV
             datoLog = fechaHoraLocal + "," + lat + "," + lon
