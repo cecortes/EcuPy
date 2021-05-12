@@ -36,6 +36,9 @@ Le da el formato necesario al timestamp
 Construye el mensaje CSV y lo almacena en la variable global
 '''
 def GpsGetData(newLine):
+    #Init global var
+    global datoLog, noValidData
+
     #Control de errores, salida en caso de haber error en el mensaje pynmea2
     try:
         #Validación del mensaje
@@ -69,40 +72,37 @@ def GpsGetData(newLine):
             #Cambio de estado de la bandera
             noValidData = False
 
-            #Usr DEBUG
-            print(datoLog)
-
-    except pynmea2.ParseError as e:
+    except (pynmea2.ParseError, TypeError) as e:
         return
 
 '''
 Crea un archivo csv en modo escritura append
 Escibe una nueva línea con el datoLog
 Cierra el archivo para la siguiente ejecución
-Realiza una pausa de ejecución de x tiempo
+Reset a las variables globales para eliminar duplicados de datos
 '''
 def CsvWriteData():
     #Init global var
-    global datoLog
+    global datoLog, noValidData
 
-    #Elimina los saltos de línea
-    s = datoLog.rstrip("\n")
-    #print(s)
-    return
+    #Usr DEBUG
+    print(datoLog)
+
     #Control de errores
     try:
         #Objeto para el archivo
         csvFile = open("datos.csv", "a")
 
         #Escritura de datos
-        csvFile.write(dataLog)
+        csvFile.write(datoLog)
         csvFile.write("\n")
 
         #Close File
         csvFile.close()
 
-        #System 5 sec Pause 
-        time.sleep(5)
+        #Reset global vars
+        datoLog = ""
+        noValidData = True
     
     except (OSError, IOError) as e:
         return
@@ -124,8 +124,14 @@ while True:
         #Get gps data
         GpsGetData(gpsNewMsg)
 
-        #Write CSV data
-        CsvWriteData()
+        #Validación de escritura CSV
+        if not noValidData:
+            #Write CSV data
+            CsvWriteData()
+            #System Pause 10 sec delay
+            time.sleep(10)
+            #Flush UART
+            usbCom.flushInput()
 
     except(KeyboardInterrupt):
         print(">> Interrupción del teclado...")
