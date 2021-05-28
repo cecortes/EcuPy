@@ -25,8 +25,8 @@ queryFuelMsg = Message(is_extended_id=False, arbitration_id=2015, data=arryFuelF
 #Configuración del bus, canal can0 y velocidad 500KBaud
 bus = can.interface.Bus(bustype='socketcan', channel='can0', bitrate=500000)
 
-#Variable que recibe la respuesta de la ECU
-canRx = bus.recv()
+#Variable que recibe la respuesta de la ECU, parámetro timeout en secs
+canRx = bus.recv(timeout=1)
 
 '''Funciones'''
 
@@ -54,9 +54,6 @@ def PrintCanData():
 
 '''MAIN'''
 
-#Listener que se encarga de disparar a la función declarada
-listener = PrintCanData()
-
 while True:
 
     #Control de errores
@@ -64,6 +61,9 @@ while True:
 
         #Request Fuel Level
         TxFuel()
+
+        #Listener que se encarga de disparar a la función declarada
+        listener = PrintCanData()
 
         #5 Sec Delay
         time.sleep(5)
