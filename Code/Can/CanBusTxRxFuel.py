@@ -22,8 +22,11 @@ arryFuelFrame = bytearray([2, 1, 47, 204, 204, 204, 204, 204])
 #El ID broascast es 7DF en hex y 2015 en int
 queryFuelMsg = Message(is_extended_id=False, arbitration_id=2015, data=arryFuelFrame)
 
+#Filtros SETUP
+ecuFilter = [{'can_id': 0x7E8, 'can_mask':0x21, 'extended': False}]
+
 #Configuración del bus, canal can0 y velocidad 500KBaud
-bus = can.interface.Bus(bustype='socketcan', channel='can0', bitrate=500000)
+bus = can.interface.Bus(bustype='socketcan', channel='can0', can_filters=ecuFilter, bitrate=500000)
 
 '''Funciones'''
 
