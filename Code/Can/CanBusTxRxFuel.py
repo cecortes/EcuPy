@@ -1,5 +1,4 @@
 #Librerías
-from __future__ import print_function
 import can
 import time
 from can import Message
