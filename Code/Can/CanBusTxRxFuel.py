@@ -25,9 +25,6 @@ queryFuelMsg = Message(is_extended_id=False, arbitration_id=2015, data=arryFuelF
 #Configuración del bus, canal can0 y velocidad 500KBaud
 bus = can.interface.Bus(bustype='socketcan', channel='can0', bitrate=500000)
 
-#Variable que recibe la respuesta de la ECU, parámetro timeout en secs
-canRx = bus.recv(timeout=1)
-
 '''Funciones'''
 
 '''
@@ -47,7 +44,7 @@ def TxFuel():
 Esta función la dispara el Listener y se encarga de mostrar cualquier mensaje que circule por la línea CANBUS ya que carece de filtros o máscaras para descriminar los datos.
 Cumple con la función de un simple sniffer.
 '''
-def PrintCanData():
+def Sniffer():
 
     #Usuario
     print(canRx)
@@ -62,8 +59,11 @@ while True:
         #Request Fuel Level
         TxFuel()
 
+        #Variable que recibe la respuesta de la ECU, parámetro timeout en secs
+        canRx = bus.recv(timeout=1)
+
         #Listener que se encarga de disparar a la función declarada
-        listener = PrintCanData()
+        listener = Sniffer()
 
         #5 Sec Delay
         time.sleep(5)
