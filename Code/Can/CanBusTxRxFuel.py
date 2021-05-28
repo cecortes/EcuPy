@@ -49,7 +49,27 @@ def Sniffer():
     #Usuario
     print(canRx)
 
+'''
+Esta función la dispara el Listener y se encarga de recibir el mensaje que circule
+por la línea CANBUS y que sea válida de acuerdo a los filtros y máscaras configurados en el BUS.
+'''
+def RxCan():
+
+    #Global init
+    global canRx, listener
+
+    #Variable que recibe la respuesta de la ECU, parámetro timeout en secs
+    canRx = bus.recv(timeout=1)
+
+    #Listener que se encarga de disparar a la función declarada
+    listener = Sniffer()
+
 '''MAIN'''
+#Variable que recibe la respuesta de la ECU, parámetro timeout en secs
+canRx = bus.recv(timeout=1)
+
+#Listener que se encarga de disparar a la función declarada
+listener = Sniffer()
 
 while True:
 
@@ -59,14 +79,11 @@ while True:
         #Request Fuel Level
         TxFuel()
 
-        #Variable que recibe la respuesta de la ECU, parámetro timeout en secs
-        canRx = bus.recv(timeout=1)
+        #Receive CanBus Message
+        RxCan()
 
-        #Listener que se encarga de disparar a la función declarada
-        listener = Sniffer()
-
-        #5 Sec Delay
-        time.sleep(5)
+        #2 Sec Delay
+        time.sleep(2)
 
     except(KeyboardInterrupt):
 
