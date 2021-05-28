@@ -1,7 +1,9 @@
 #Librerías
+from __future__ import print_function
 import can
 import time
 from can import Message
+from can import listener
 
 '''
 The functional PID query is sent to the vehicle on the CAN bus at ID 7DFh, using 8 data bytes. The bytes are:
@@ -24,6 +26,9 @@ queryFuelMsg = Message(is_extended_id=False, arbitration_id=2015, data=arryFuelF
 #Configuración del bus, canal can0 y velocidad 500KBaud
 bus = can.interface.Bus(bustype='socketcan', channel='can0', bitrate=500000)
 
+#Variable que recibe la respuesta de la ECU
+canRx = bus.recv()
+
 '''Funciones'''
 
 '''
@@ -39,7 +44,19 @@ def TxFuel():
     #Usuario
     print(">> Fuel Level request sended...")
 
+'''
+Esta función la dispara el Listener y se encarga de mostrar cualquier mensaje que circule por la línea CANBUS ya que carece de filtros o máscaras para descriminar los datos.
+Cumple con la función de un simple sniffer.
+'''
+def PrintCanData():
+
+    #Usuario
+    print(canRx)
+
 '''MAIN'''
+
+#Listener que se encarga de disparar a la función declarada
+listener = PrintCanData()
 
 while True:
 
