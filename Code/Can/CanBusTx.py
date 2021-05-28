@@ -22,5 +22,8 @@ bus = can.interface.Bus(bustype='socketcan', channel='can0', bitrate=500000)
 #Envío de mensaje CANBUS
 bus.send(queryFuelMsg)
 
+#Detenemos el CANBUS
+bus.shutdown()
+
 #Mostramos el mensaje en pantalla
 print(queryFuelMsg)
