@@ -53,8 +53,7 @@ def Sniffer():
     print(canRx)
 
 '''
-Esta función la dispara el Listener y se encarga de recibir el mensaje que circule
-por la línea CANBUS y que sea válida de acuerdo a los filtros y máscaras configurados en el BUS.
+Esta función se encarga de iniciar la variable global del bus.recv con un timeout de escucha de 1 seg, además de indicarle al objeto listener que función debe disparar cuando se cumpla la recepción de un mensaje CANBUS válido y que cumpla con el filtro y máscara configurado.
 '''
 def RxCan():
 
@@ -65,13 +64,32 @@ def RxCan():
     canRx = bus.recv(timeout=1)
 
     #Listener que se encarga de disparar a la función declarada
-    listener = Sniffer()
+    listener = GetFuel()
+
+'''
+Valida el PID del frame recibido para que sea 0x2F
+'''
+def GetFuel():
+
+    #Arreglo local
+    frame = bytearray(8)
+
+    #Almacenamos el bus de datos en el arreglo
+    frame = canRx.data
+
+    #Variable cadena con el byte significativo
+    strFrame = frame[2:3]
+
+    #Usuario DEBUG <---------------------------
+    print(strFrame.hex())
+
+    if strFrame == 0x2F:
+        print("Hit")
+
 
 '''MAIN'''
-#Variable que recibe la respuesta de la ECU, parámetro timeout en secs
+#Iniciamos las variables y objetos que serán utilizados por el CANBUS en funciones posteriores.
 canRx = bus.recv(timeout=1)
-
-#Listener que se encarga de disparar a la función declarada
 listener = Sniffer()
 
 while True:
