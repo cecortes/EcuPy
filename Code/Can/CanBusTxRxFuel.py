@@ -83,7 +83,7 @@ def GetFuel():
     #Usuario DEBUG <---------------------------
     print(strFrame.hex())
 
-    if strFrame == 0x2F:
+    if strFrame == 47:
         print("Hit")
 
 
