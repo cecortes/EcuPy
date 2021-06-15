@@ -16,7 +16,7 @@ def InitUart():
     global BAUDRATE, TIMEOUT, usbCom
 
     #Objetos
-    usbCom = serial.Serial('COM3')      #Para el caso de Linux '/dev/ttyUSB0' or '/dev/ttyAMA0'
+    usbCom = serial.Serial('COM3')      #Para el caso de Linux '/dev/ttyUSB0' or '/dev/ttyAMA0' or Zero '/dev/ttyS0'
     usbCom.baudrate = BAUDRATE
     usbCom.timeout = TIMEOUT
 
