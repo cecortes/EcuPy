@@ -21,3 +21,7 @@
   <li><b>sudo raspi-config</b>
 </ul>
 </br>
+<br>Configurar la ip stática para el usb mediante la edición del archivo:</br>
+<ul>
+  <li>sudo nano /etc/network/interfaces
+</ul>
