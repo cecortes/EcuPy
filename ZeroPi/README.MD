@@ -13,6 +13,11 @@
 </ul>
 <br>Abrir y editar el archivo cmdline.txt agregando:
 <ul>
-<li><s>rootwait</s> <b>modules-load=dwc2,g_ether</b>
+  <li><s>rootwait</s> <b>modules-load=dwc2,g_ether</b>
+</ul>
+</br>
+<br>Conectar el monitor y teclado a la Pi, encenderla y configurarla por medio de:
+<ul>
+  <li><b>sudo raspi-config</b>
 </ul>
 </br>
