@@ -89,3 +89,12 @@
 <ul><li><i>lsusb</i></ul>
 <p>Se mostrará algo como:
 <ul><li><i>Netchip Tecnology,Inc Linux-USB Ethernet/RNDIS Gadget</i></ul>
+<p>Luego es necesario mostrar los dispositivos de red mediante:
+<ul><li><i>ifconfig</ul></i>
+<p>Se mostrará un dispositivo "enp1S0" pero el que interesa es "enp0S29f7U1", después de identificarlo es necesario configurar las direcciones de red mediante el terminal:
+<ul><li><i>sudo ipconfig <s>enp0s29f7U1</s> 192.168.10.1 netmask 255.255.255.0</i></ul>
+<p>
+<p><h2>Conexión mediante SSH</h2>
+<p><ul><li><i>ssh pi@192.168.10.2</i>
+       <li>pwd: 431514
+  </ul>
