@@ -28,26 +28,26 @@
 <br>Para tener internet mediante dhcp y realizar la conexión vía wifi, previamente configurada en el wpa_supplicant</br>
 <p>El archivo quedaría de la siguiente manera:
 <br><p><b>
-# interfaces(5) file used by ifup(8) and ifdown(8)
-
-# Please note that this file is written to be used with dhcpcd
-
-# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
-
-# Include files from /etc/network/interfaces.d:
-
-source-directory /etc/network/interfaces.d
-
-#allow-hotplug usb0
-iface usb0 inet static
-address 192.168.10.2
-netmask 255.255.255.0
-network 192.168.10.0
-broadcast 192.168.10.255
-gateway 192.168.10.1
-
-auto wlan0
-allow-hotplug wlan0
-iface wlan0 inet dhcp
-wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-</b>
+<p># interfaces(5) file used by ifup(8) and ifdown(8)
+<br>
+<p># Please note that this file is written to be used with dhcpcd
+<br>
+<p># For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+<br>
+<p># Include files from /etc/network/interfaces.d:
+<br>
+<p>source-directory /etc/network/interfaces.d
+<br>
+<p>#allow-hotplug usb0
+<p>iface usb0 inet static
+<p>address 192.168.10.2
+<p>netmask 255.255.255.0
+<p>network 192.168.10.0
+<p>broadcast 192.168.10.255
+<p>gateway 192.168.10.1
+<br>
+<p>auto wlan0
+<p>allow-hotplug wlan0
+<p>iface wlan0 inet dhcp
+<p>   wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+</br>
