@@ -31,20 +31,18 @@
 <p># interfaces(5) file used by ifup(8) and ifdown(8)
 <br>
 <p># Please note that this file is written to be used with dhcpcd
-<br>
 <p># For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
 <br>
 <p># Include files from /etc/network/interfaces.d:
-<br>
 <p>source-directory /etc/network/interfaces.d
 <br>
 <p>#allow-hotplug usb0
 <p>iface usb0 inet static
-<p>address 192.168.10.2
-<p>netmask 255.255.255.0
-<p>network 192.168.10.0
-<p>broadcast 192.168.10.255
-<p>gateway 192.168.10.1
+<p> address 192.168.10.2
+<p> netmask 255.255.255.0
+<p> network 192.168.10.0
+<p> broadcast 192.168.10.255
+<p> gateway 192.168.10.1
 <br>
 <p>auto wlan0
 <p>allow-hotplug wlan0
