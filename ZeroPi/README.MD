@@ -10,3 +10,9 @@
       <li>dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
       <li>dtoverlay=spi-bcm2835-overlay
   </ul>
+</ul>
+<br>Abrir y editar el archivo cmdline.txt agregando:
+<ul>
+<li><i>rootwait</i> modules-load=dwc2,g_ether
+</ul>
+</br>
