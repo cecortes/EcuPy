@@ -2,4 +2,4 @@
 <br></br>
 <br><ul>
 <li>Instalar raspbian en la tarjeta SD por medio de Balena Etcher
-</br>
+<li>Desde Windows abrir el archivo <i>config.txt</i>
