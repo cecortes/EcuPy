@@ -6,7 +6,7 @@
 <li>Al final del archivo añadir las siguientes líneas:
   <ul><li>dtoverlay=dwc
       <li>enable_uart=1
-      <br>
+      <br></br>
       <li>dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25
       <li>dtoverlay=spi-bcm2835-overlay
   </ul>
