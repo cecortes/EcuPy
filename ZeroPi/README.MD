@@ -28,7 +28,7 @@
 <h2>
 <br>Para tener internet mediante dhcp y realizar la conexión vía wifi, previamente configurada en el wpa_supplicant, El archivo quedaría de la siguiente manera:</br>
 </h2>
-<i>
+<i><h3>
 <p># interfaces(5) file used by ifup(8) and ifdown(8)
 <br>
 <p># Please note that this file is written to be used with dhcpcd
@@ -48,12 +48,13 @@
 <p>auto wlan0
 <p>allow-hotplug wlan0
 <p>iface wlan0 inet dhcp
-<p>   wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</i>
+<p>   wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</i></h3>
 <br>
 <h2>
 <p>Para tener conexión mediante USB, sin conexión por medio de la Wifi, el archivo quedaría de la siguiente manera:
 </h2>
 <p>
+<i><h3>
 <p># interfaces(5) file used by ifup(8) and ifdown(8)
 <p># Please note that this file is written to be used with dhcpcd</p>
 <p># For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'</p>
@@ -73,3 +74,4 @@
 <p>allow-hotplug wlan0</p>
 <p>iface wlan0 inet dhcp</p>
 <p>	wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</p>
+</i></h3>
