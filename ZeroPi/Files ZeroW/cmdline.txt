@@ -1,0 +1,1 @@
+console=tty1 root=PARTUUID=492f90f5-02 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether
