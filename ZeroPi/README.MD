@@ -75,3 +75,11 @@
 <p>iface wlan0 inet dhcp</p>
 <p>	wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</p>
 </i></h5>
+<p>
+<p><h2>Para realizar la conexión USB mediante Windows, es necesaria la siguiente configuración de red en el dispositivo RNDIS GADGET:</h2>
+<ul>
+  <li>Dirección IP: 192.168.10.1
+  <li>Máscara de subred: 255.255.255.0
+  <li>Puerta de enlace: 192.168.10.1
+</ul>
+<p>Realizar un ping a la ZeroW con la dirección <i>192.168.10.2</i>
