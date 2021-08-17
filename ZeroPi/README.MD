@@ -83,3 +83,9 @@
   <li>Puerta de enlace: 192.168.10.1
 </ul>
 <p>Realizar un ping a la ZeroW con la dirección <i>192.168.10.2</i>
+<p>
+<p><h2>Para realizar la conexión USB mediante Linux:</h2>
+<p>   Mediante terminal, escribir:
+<ul><li><i>lsusb</i></ul>
+<p>Se mostrará algo como:
+<ul><li><i>Netchip Tecnology,Inc Linux-USB Ethernet/RNDIS Gadget</i></ul>
