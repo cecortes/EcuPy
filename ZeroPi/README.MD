@@ -26,7 +26,7 @@
   <li>sudo nano /etc/network/interfaces
 </ul>
 <br>Para tener internet mediante dhcp y realizar la conexión vía wifi, previamente configurada en el wpa_supplicant</br>
-<p>El archivo quedaría de la siguiente manera:
+<i><p>El archivo quedaría de la siguiente manera:
 <br>
 <p># interfaces(5) file used by ifup(8) and ifdown(8)
 <br>
@@ -47,31 +47,26 @@
 <p>auto wlan0
 <p>allow-hotplug wlan0
 <p>iface wlan0 inet dhcp
-<p>   wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+<p>   wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</i>
 <br>
 <p>Para tener conexión mediante USB, sin conexión por medio de la Wifi, el archivo quedaría de la siguiente manera:
 <p>
 <p># interfaces(5) file used by ifup(8) and ifdown(8)
-<p>
-# Please note that this file is written to be used with dhcpcd
-# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
-</p>
+<p># Please note that this file is written to be used with dhcpcd</p>
+<p># For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'</p>
 
-<p># Include files from /etc/network/interfaces.d:
-source-directory /etc/network/interfaces.d
-</p>
+<p># Include files from /etc/network/interfaces.d:</p>
+<p>source-directory /etc/network/interfaces.d</p>
 
-<p>allow-hotplug usb0
-iface usb0 inet static
-	address 192.168.10.2
-	netmask 255.255.255.0
-	network 192.168.10.0
-	broadcast 192.168.10.255
-	gateway 192.168.10.1
-</p>
+<p>allow-hotplug usb0</p>
+<p>iface usb0 inet static</p>
+<p>	address 192.168.10.2</p>
+<p>	netmask 255.255.255.0</p>
+<p>	network 192.168.10.0</p>
+<p>	broadcast 192.168.10.255</p>
+<p>	gateway 192.168.10.1</p>
 
-<p>#auto wlan0
-allow-hotplug wlan0
-iface wlan0 inet dhcp
-	wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-</p>
+<p>#auto wlan0</p>
+<p>allow-hotplug wlan0</p>
+<p>iface wlan0 inet dhcp</p>
+<p>	wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</p>
