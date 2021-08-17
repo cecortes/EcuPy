@@ -26,10 +26,9 @@
   <li>sudo nano /etc/network/interfaces
 </ul>
 <h2>
-<br>Para tener internet mediante dhcp y realizar la conexión vía wifi, previamente configurada en el wpa_supplicant</br>
-<i><p>El archivo quedaría de la siguiente manera:
-<br>
+<br>Para tener internet mediante dhcp y realizar la conexión vía wifi, previamente configurada en el wpa_supplicant, El archivo quedaría de la siguiente manera:</br>
 </h2>
+<i>
 <p># interfaces(5) file used by ifup(8) and ifdown(8)
 <br>
 <p># Please note that this file is written to be used with dhcpcd
