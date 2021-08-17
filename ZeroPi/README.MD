@@ -98,3 +98,31 @@
 <p><ul><li><i>ssh pi@192.168.10.2</i>
        <li>pwd: 431514
   </ul>
+<p>
+<p><h2>Configuración del archivo wpa_supplicant</h2>
+<p>Editar con nano el archivo:
+<ul><li>sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</ul>
+<p><i>
+<br>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+<br>update_config=1
+<br>country=MX
+<p>
+<br>network={
+<br>  ssid="5P0CKy"
+<br>  psk="ZMalqp10"
+<br>}
+<p>
+<br>network={
+<br>  ssid="PH0N3"
+<br>  psk="ZMalqp10"
+<br>}
+<p>
+<br>network={
+<br>  ssid="ZMTdeMEXICO"
+<br>  psk="ZMTMexico2878"
+<br>}
+<p>
+<br>network={
+<br>  ssid="POPOHUA2"
+<br>  psk="ZMalqp10"
+<br>}
