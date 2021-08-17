@@ -13,6 +13,6 @@
 </ul>
 <br>Abrir y editar el archivo cmdline.txt agregando:
 <ul>
-<li><i>rootwait</i> modules-load=dwc2,g_ether
+<li><s>rootwait</s> <b>modules-load=dwc2,g_ether</b>
 </ul>
 </br>
