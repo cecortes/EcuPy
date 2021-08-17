@@ -27,7 +27,7 @@
 </ul>
 <br>Para tener internet mediante dhcp y realizar la conexión vía wifi, previamente configurada en el wpa_supplicant</br>
 <p>El archivo quedaría de la siguiente manera:
-<br><p><strong>
+<br><p><i>
 <p># interfaces(5) file used by ifup(8) and ifdown(8)
 <br>
 <p># Please note that this file is written to be used with dhcpcd
@@ -50,5 +50,5 @@
 <p>allow-hotplug wlan0
 <p>iface wlan0 inet dhcp
 <p>   wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-</strong>
+</i>
 </br>
