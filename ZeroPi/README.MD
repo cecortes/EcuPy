@@ -25,9 +25,11 @@
 <ul>
   <li>sudo nano /etc/network/interfaces
 </ul>
+<h2>
 <br>Para tener internet mediante dhcp y realizar la conexión vía wifi, previamente configurada en el wpa_supplicant</br>
 <i><p>El archivo quedaría de la siguiente manera:
 <br>
+</h2>
 <p># interfaces(5) file used by ifup(8) and ifdown(8)
 <br>
 <p># Please note that this file is written to be used with dhcpcd
@@ -49,7 +51,9 @@
 <p>iface wlan0 inet dhcp
 <p>   wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</i>
 <br>
+<h2>
 <p>Para tener conexión mediante USB, sin conexión por medio de la Wifi, el archivo quedaría de la siguiente manera:
+</h2>
 <p>
 <p># interfaces(5) file used by ifup(8) and ifdown(8)
 <p># Please note that this file is written to be used with dhcpcd</p>
