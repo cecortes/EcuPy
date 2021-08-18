@@ -147,3 +147,21 @@
 <br><ul>Reiniciar la Pi, si la configuración y el cableado son correctos debe de aparece el siguiente directorio:
       <li><i>/sys/bus/spi/devices/spi0.0/net</i>
     </ul>
+<br>
+<p><h2>Inicio y configuración interface CAN0</h2>
+<br><ul>Para iniciar la interface can0 y setup:
+      <li><i>sudo ip link set can0 up type can bitrate 500000</i>
+    </ul>
+<br><ul>Para detener la interface:
+      <li><i>sudo ip link set can0 down</i>
+    </ul>
+<br>
+<p><h2>CANDUMP</h2>
+<br><ul>Para realizar un dump de los paquetes que circulan por la red CAN
+      <li><i>candump -c -c -a can0,#FFFFFFFF</i>
+      <li>(Muestra toda la información y el dataframe de cualquier Id)
+    </ul>
+<br><ul>Para realizar un dump de los paquetes de un Id en específico:
+      <li><i>candump -c -c -a can0,100:7FF</i>
+      <li>(Muestra el dataframe de el Id 0x100)
+    </ul>
