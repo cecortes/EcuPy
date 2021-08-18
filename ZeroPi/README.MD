@@ -176,14 +176,14 @@
       <li><i>pip install python-can</i>
     </ul>
 <p><h4>Ejemplos de uso:</h4></p>
-<p><h2>"CanBusConfig.py"</h2>
+<p><h3>"CanBusConfig.py"</h3>
   <br>#Importamos la librería
   <br>import can
   <br>
   <br>#Configuración del bus, canal can0 y velocidad 500KBaud
   <br>bus = can.interface.Bus(bustype='socketcan', channel='can0', bitrate=500000)
 </p>
-<p><h2>"CanBusListener.py"</h2>
+<p><h3>"CanBusListener.py"</h3>
   <br>#Importamos la librería
   <br>import can
   <br>from can import listener
