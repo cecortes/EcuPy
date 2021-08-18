@@ -126,3 +126,12 @@
 <br>  ssid="POPOHUA2"
 <br>  psk="ZMalqp10"
 <br>}</i>
+<br>
+<p><h2>Pi Zero W & SPI MCP2551</h2>
+<br>
+<br><ul>Modificar el archivo /boot/config.txt
+      <li><i>sudo nano /boot/config.txt</i>
+    </ul>
+<br><ul>Descomentar en la sección optional hardware interfaces
+      <li><i>dtparam=spi=on</i>
+    </ul>
