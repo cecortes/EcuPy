@@ -169,3 +169,17 @@
       <li><i>https://sgframework.readthedocs.io/en/latest/cantutorial.html</i>
       <li><i>https://manpages.debian.org/testing/can-utils/candump.1.en.html</i>
       <li><i>https://github.com/linux-can/can-utils</i>
+    </ul>
+<br>
+<p><h2>Python CAN</h2>
+<br><ul>Instalación:
+      <li><i>pip install python-can</i>
+    </ul>
+<p><h4>Ejemplos de uso:</h4></p>
+<p>CanBusConfig.py
+  <br>#Importamos la librería
+  <br>import can
+  <br>
+  <br>#Configuración del bus, canal can0 y velocidad 500KBaud
+  <br>bus = can.interface.Bus(bustype='socketcan', channel='can0', bitrate=500000)
+</p>
