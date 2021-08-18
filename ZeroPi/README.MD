@@ -206,3 +206,45 @@
   <br>#Usuario
   <br>print(">> Done!!!")
 </p>
+<p><h3>"CanBusRx.py"</h3>
+  <br>#Importamos la librería
+  <br>import can
+  <br>
+  <br>#Configuración del bus, canal can0 y velocidad 500KBaud
+  <br>bus = can.interface.Bus(bustype='socketcan', channel='can0', bitrate=500000)
+  <br>
+  <br>#Recibe los mensajes del buffer y los muestra en pantalla, de manera ciclíca el pprograma no sale hasta interrupt
+  <br>for msg in bus:
+  <br>    print(msg)
+</p>
+<p><h3>"CanBusTx.py"</h3>
+  <br>#Importamos la librería
+  <br>import can
+  <br>from can import Message
+  <br>
+  <br>#Globales
+  <br>'''
+  <br>The functional PID query is sent to the vehicle on the CAN bus at ID 7DFh, using 8 data bytes. The bytes are:
+  <br>
+  <br>                                                            Byte    
+  <br>PID Type	        0	        1	                        2	                                        3	    4	    5	    6	    7
+  <br>SAE Standard	Number of       Service                     PID code                                    not used (ISO 15765-2 suggests CCh)
+  <br>                additional      01 = show current data;     (e.g.: 05 = Engine coolant temperature)	
+  <br>                data bytes:     02 = freeze frame;
+  <br>                2	
+  <br>'''
+  <br>arryFuelFrame = bytearray([2, 1, 47, 204, 204, 204, 204, 204])                              #Los valores de la tabla de arriba están convertidos de hex a int
+  <br>queryFuelMsg = Message(is_extended_id=False, arbitration_id=2015, data=arryFuelFrame)       #El ID broascast es 7DF en hex y 2015 en int
+  <br>
+  <br>#Configuración del bus, canal can0 y velocidad 500KBaud
+  <br>bus = can.interface.Bus(bustype='socketcan', channel='can0', bitrate=500000)
+  <br>
+  <br>#Envío de mensaje CANBUS
+  <br>bus.send(queryFuelMsg)
+  <br>
+  <br>#Detenemos el CANBUS
+  <br>bus.shutdown()
+  <br>
+  <br>#Mostramos el mensaje en pantalla
+  <br>print(queryFuelMsg)
+</p>
