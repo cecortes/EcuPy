@@ -165,3 +165,7 @@
       <li><i>candump -c -c -a can0,100:7FF</i>
       <li>(Muestra el dataframe de el Id 0x100)
     </ul>
+<br><ul>Ligas de consulta
+      <li><i>https://sgframework.readthedocs.io/en/latest/cantutorial.html</i>
+      <li><i>https://manpages.debian.org/testing/can-utils/candump.1.en.html</i>
+      <li><i>https://github.com/linux-can/can-utils</i>
