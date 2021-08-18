@@ -177,7 +177,6 @@
     </ul>
 <p><h4>Ejemplos de uso:</h4></p>
 <p>"CanBusConfig.py"
-  <br>
   <br>#Importamos la librería
   <br>import can
   <br>
@@ -185,7 +184,6 @@
   <br>bus = can.interface.Bus(bustype='socketcan', channel='can0', bitrate=500000)
 </p>
 <p>"CanBusListener.py"
-  <br>
   <br>#Importamos la librería
   <br>import can
   <br>from can import listener
