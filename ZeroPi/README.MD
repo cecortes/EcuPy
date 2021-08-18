@@ -135,3 +135,15 @@
 <br><ul>Descomentar en la sección optional hardware interfaces
       <li><i>dtparam=spi=on</i>
     </ul>
+<br><ul>Agregar las siguientes líneas al final del archivo:
+      <li><i>dtoverlay=mcp2515-can0,oscillator=16000000,interrupt=25</i>
+      <li><i>dtoverlay=spi-bcm2835-overlay</i>
+    </ul>
+<br>
+<p><h2>Instalación CAN UTILS</h2>
+<br><ul>Instalar can-utils sobre raspbian:
+      <li><i>sudo apt-get install can-utils</i>
+    </ul>
+<br><ul>Reiniciar la Pi, si la configuración y el cableado son correctos debe de aparece el siguiente directorio:
+      <li><i>/sys/bus/spi/devices/spi0.0/net</i>
+    </ul>
