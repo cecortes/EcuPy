@@ -248,3 +248,9 @@
   <br>#Mostramos el mensaje en pantalla
   <br>print(queryFuelMsg)
 </p>
+<hr>
+<p><h2>CANSNIFFER from can-utils</h2><p>
+<hr>
+<br><ul>Para realizar una captura de paquetes que circulen en la línea CAN:
+      <li><i>cansniffer can0</li>
+    </ul>
