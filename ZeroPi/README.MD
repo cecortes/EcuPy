@@ -340,3 +340,13 @@ Query
 The functional PID query is sent to the vehicle on the CAN bus at ID 7DFh, using 8 data bytes. The bytes are:
 
 <img src="Resource/Captura10.JPG" alt="PID10" title="PIDs">
+
+<hr>
+<h1>Response</h1>
+<hr>
+
+The vehicle responds to the PID query on the CAN bus with message IDs that depend on which module responded. Typically the engine or main ECU responds at ID 7E8h. Other modules, like the hybrid controller or battery controller in a Prius, respond at 07E9h, 07EAh, 07EBh, etc. These are 8h higher than the physical address the module responds to. Even though the number of bytes in the returned value is variable, the message uses 8 data bytes regardless. The bytes are:
+
+<img src="Resource/Captura11.JPG" alt="PID11" title="PIDs">
+
+<img src="Resource/Captura12.JPG" alt="PID12" title="PIDs">
