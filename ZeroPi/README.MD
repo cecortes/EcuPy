@@ -309,3 +309,5 @@ The table below shows the standard OBD-II PIDs as defined by SAE J1979. The expe
 Note that modes 1 and 2 are basically identical, except that Mode 1 provides current information, whereas Mode 2 provides a snapshot of the same data taken at the point when the last diagnostic trouble code was set. The exceptions are PID 01, which is only available in Mode 1, and PID 02, which is only available in Mode 2. If Mode 2 PID 02 returns zero, then there is no snapshot and all other Mode 2 data is meaningless.
 
 <img src="Resource/Captura.JPG" alt="PID1" title="PIDs">
+
+<img src="Resource/Captura2.JPG" alt="PID2" title="PIDs">
