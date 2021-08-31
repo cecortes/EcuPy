@@ -254,3 +254,10 @@
 <br><ul>Para realizar una captura de paquetes que circulen en la línea CAN:
       <li><i>cansniffer can0</li>
     </ul>
+<hr>
+<h1>Envío de datos por medio del CAN BUS</h1>
+<hr>
+<p>Para enviar un único frame, se utiliza el comando:
+  <ul>
+    <li>cansend</li>
+  </ul>
