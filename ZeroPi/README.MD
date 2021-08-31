@@ -329,3 +329,14 @@ Note that modes 1 and 2 are basically identical, except that Mode 1 provides cur
 <p>
 In the formula column, letters A, B, C, etc. represent the decimal equivalent of the first, second, third, etc. bytes of data. Where a (?) appears, contradictory or incomplete information was available. Someone with a copy of the 2006 SAE HS-3000 should fact-check these.
 </p>
+
+<hr>
+<h1>CAN Bus format</h1>
+<hr>
+
+The PID query and response occurs on the vehicle’s CAN Bus. Physical addressing uses particular CAN IDs for specific modules (e.g., 720 for the instrument cluster in Fords). Functional addressing uses the CAN ID 7DFh, to which any module listening may respond.
+
+Query
+The functional PID query is sent to the vehicle on the CAN bus at ID 7DFh, using 8 data bytes. The bytes are:
+
+<img src="Resource/Captura10.JPG" alt="PID10" title="PIDs">
