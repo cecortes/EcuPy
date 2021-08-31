@@ -269,3 +269,33 @@
   <ul>
     <li>cansend -h</li>
   </ul>
+
+<hr>
+<h1>PID OBD II</h1>
+<hr>
+Modes
+There are ten modes of operation described in the latest OBD-II standard SAE J1979. They are, the $ prefix indicating a hexadecimal number:
+
+$01. Show current data
+
+$02. Show freeze frame data
+
+$03. Show stored Diagnostic Trouble Codes
+
+$04. Clear Diagnostic Trouble Codes and stored values
+
+$05. Test results, oxygen sensor monitoring (non CAN only)
+
+$06. Test results, other component/system monitoring (Test results, oxygen sensor monitoring for CAN only)
+
+$07. Show pending Diagnostic Trouble Codes (detected during current or last driving cycle)
+
+$08. Control operation of on-board component/system
+
+$09. Request vehicle information
+
+$0A. Permanent DTC’s (Cleared DTC’s)
+
+Vehicle manufactures are not required to support all modes.
+
+Each manufacturer may define additional modes above #9 (e.g.: mode 22 as defined by SAE J2190 for Ford/GM, mode 21 for Toyota) for other information (e.g.: the voltage of the Traction Battery in a HEV).
