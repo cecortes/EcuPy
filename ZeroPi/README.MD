@@ -367,3 +367,9 @@ Dentro de una consola escribimos, para el caso del nivel de combustible:
 <ul>
   <li>cansend can0 7DF#02012FCCCCCCCCCC</i>
 </ul>
+
+En otra consola, previamente corremos el comando sniffer para ver los resultados:
+
+<ul>
+  <li><i>cansniffer can0</i></li>
+</ul>
