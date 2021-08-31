@@ -325,3 +325,7 @@ Note that modes 1 and 2 are basically identical, except that Mode 1 provides cur
 <img src="Resource/Captura8.JPG" alt="PID8" title="PIDs">
 
 <img src="Resource/Captura9.JPG" alt="PID9" title="PIDs">
+
+<p>
+In the formula column, letters A, B, C, etc. represent the decimal equivalent of the first, second, third, etc. bytes of data. Where a (?) appears, contradictory or incomplete information was available. Someone with a copy of the 2006 SAE HS-3000 should fact-check these.
+</p>
