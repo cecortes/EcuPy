@@ -267,5 +267,5 @@
   </ul>
 <p>Para mostrar la ayuda en pantalla:
   <ul>
-    <li>cansend -h<li>
+    <li>cansend -h</li>
   </ul>
