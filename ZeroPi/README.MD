@@ -353,3 +353,17 @@ The vehicle responds to the PID query on the CAN bus with message IDs that depen
 
 <p>
 Para más información <a href="http://obdcon.sourceforge.net/2010/06/obd-ii-pids/" targer="_blank"> siga este link</a>
+
+<hr>
+<h1>Prueba de envío con CAN UTILS</h1>
+<hr>
+
+<img src="Resource/Captura13.JPG" alt="PID13" title="PIDs">
+
+<img src="Resource/Captura14.JPG" alt="PID14" title="PIDs">
+
+Dentro de una consola escribimos:
+
+<ul>
+  <li>cansend can0 7DF#02012FCCCCCCCCCC</i>
+</ul>
