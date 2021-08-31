@@ -313,3 +313,5 @@ Note that modes 1 and 2 are basically identical, except that Mode 1 provides cur
 <img src="Resource/Captura2.JPG" alt="PID2" title="PIDs">
 
 <img src="Resource/Captura3.JPG" alt="PID3" title="PIDs">
+
+<img src="Resource/Captura4.JPG" alt="PID4" title="PIDs">
