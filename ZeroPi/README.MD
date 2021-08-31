@@ -299,3 +299,11 @@ $0A. Permanent DTC’s (Cleared DTC’s)
 Vehicle manufactures are not required to support all modes.
 
 Each manufacturer may define additional modes above #9 (e.g.: mode 22 as defined by SAE J2190 for Ford/GM, mode 21 for Toyota) for other information (e.g.: the voltage of the Traction Battery in a HEV).
+
+<hr>
+<h1>Standard PIDs</h1>
+<hr>
+
+The table below shows the standard OBD-II PIDs as defined by SAE J1979. The expected response for each PID is given, along with information on how to translate the response into meaningful data. Again, not all vehicles will support all PIDs and there can be manufacturer-defined custom PIDs that are not defined in the OBD-II standard.
+
+Note that modes 1 and 2 are basically identical, except that Mode 1 provides current information, whereas Mode 2 provides a snapshot of the same data taken at the point when the last diagnostic trouble code was set. The exceptions are PID 01, which is only available in Mode 1, and PID 02, which is only available in Mode 2. If Mode 2 PID 02 returns zero, then there is no snapshot and all other Mode 2 data is meaningless.
