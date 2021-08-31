@@ -261,3 +261,11 @@
   <ul>
     <li>cansend</li>
   </ul>
+<p>Ejemplo de uso:
+  <ul>
+    <li>cansend can0 123#1122334455667788</li>
+  </ul>
+<p>Para mostrar la ayuda en pantalla:
+  <ul>
+    <li>cansend -h<li>
+  </ul>
