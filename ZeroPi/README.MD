@@ -362,7 +362,7 @@ Para más información <a href="http://obdcon.sourceforge.net/2010/06/obd-ii-pid
 
 <img src="Resource/Captura14.JPG" alt="PID14" title="PIDs">
 
-Dentro de una consola escribimos:
+Dentro de una consola escribimos, para el caso del nivel de combustible:
 
 <ul>
   <li>cansend can0 7DF#02012FCCCCCCCCCC</i>
