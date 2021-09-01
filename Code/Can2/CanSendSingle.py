@@ -17,4 +17,4 @@ bus.send(queryMsg)
 bus.shutdown()
 
 #Mostramps el mensaje en pantalla
-print(">>Send : " + queryMsg)
+print(">>Send : " , queryMsg)
