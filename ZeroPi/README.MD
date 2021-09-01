@@ -352,7 +352,7 @@ The vehicle responds to the PID query on the CAN bus with message IDs that depen
 <img src="Resource/Captura12.JPG" alt="PID12" title="PIDs">
 
 <p>
-Para más información <a href="http://obdcon.sourceforge.net/2010/06/obd-ii-pids/" targer="_blank"> siga este link</a>
+Para más información <a href="http://obdcon.sourceforge.net/2010/06/obd-ii-pids/" target="_blank"> siga este link</a>
 
 <hr>
 <h1>Prueba de envío con CAN UTILS</h1>
